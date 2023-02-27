@@ -25,7 +25,7 @@ public class Header1Test extends SwagLabsBase {
     }
     @Test
     public void menuButtonIsClickable() {
-//        All valid users - menu bar apearing
+//        All valid users - menu bar appearing
         for (int i =1; i<= excelReader.getLastRow("LoginValid"); i++) {
             username = excelReader.getStringData("LoginValid", i, 0);
             password = excelReader.getStringData("LoginValid", 1, 1);
@@ -42,7 +42,7 @@ public class Header1Test extends SwagLabsBase {
         waitForVisibility(headerPage.sideBar);
     }
         @Test
-    public void allItemsClicable () {
+    public void allItemsClickable () {
 //        All valid users - All Items
         for (int i =1; i<= excelReader.getLastRow("LoginValid"); i++) {
             username = excelReader.getStringData("LoginValid", i, 0);
@@ -96,8 +96,8 @@ public class Header1Test extends SwagLabsBase {
         }
     }
     @Test
-    public void resetAppStateClicable () {
-//        All valid users - reseting
+    public void resetAppStateClickable() {
+//        All valid users - resetting
         for (int i =1; i<= excelReader.getLastRow("LoginValid"); i++) {
             username = excelReader.getStringData("LoginValid", i, 0);
             password = excelReader.getStringData("LoginValid", 1, 1);
@@ -111,7 +111,7 @@ public class Header1Test extends SwagLabsBase {
         }
     }
         @Test
-        public void exitButtonClicable () {
+        public void exitButtonClickable () {
 //        All valid users - exit button
         for (int i =1; i<= excelReader.getLastRow("LoginValid"); i++) {
             username = excelReader.getStringData("LoginValid", i, 0);
