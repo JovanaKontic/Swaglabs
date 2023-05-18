@@ -70,6 +70,6 @@ public class SwagLabsBase {
 
     @AfterClass
     public void shutDown () {
-        driver.close();
+        driver.quit();
     }
 }

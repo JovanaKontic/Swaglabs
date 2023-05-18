@@ -4,6 +4,7 @@ import Base.SwagLabsBase;
 import Pages.HeaderPage;
 import Pages.LoadingPage;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -17,7 +18,9 @@ public class Header1Test extends SwagLabsBase {
     String password;
     @BeforeMethod
     public void setUpPage() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
         waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
         headerPage = new HeaderPage();
@@ -125,6 +128,6 @@ public class Header1Test extends SwagLabsBase {
     @AfterMethod
     public void shutDownTest () {
         driver.manage().deleteAllCookies();
-        driver.quit();
+        driver.close();
     }
 }

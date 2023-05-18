@@ -5,6 +5,7 @@ import Pages.CartPage;
 import Pages.HeaderPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 import Pages.LoadingPage;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -18,11 +19,13 @@ public class ShopingCartTest extends SwagLabsBase {
 
     @BeforeMethod
     public void setUpPage() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
         waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        loadingPage = new LoadingPage();
         headerPage = new HeaderPage();
+        loadingPage = new LoadingPage();
         cartPage = new CartPage();
 
     }
@@ -41,7 +44,7 @@ public class ShopingCartTest extends SwagLabsBase {
     @AfterMethod
     public void shutDownTest () {
         driver.manage().deleteAllCookies();
-        driver.quit();
+        driver.close();
     }
 
 }
